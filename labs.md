@@ -1,7 +1,7 @@
-# Implementing AI Agents in Python
-## Using frameworks, MCP, and RAG for agentic AI
+# Understanding and Working with AI Agents
+## A Hands-on Gen AI Workshop
 ## Session labs 
-## Revision 1.10 - 07/09/25
+## Revision 1.0 - 08/22/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -71,86 +71,7 @@ python agent1.py
 </p>
 </br></br>
 
-**Lab 2 - Exploring MCP**
-
-**Purpose: In this lab, we’ll see how MCP can be used to standardize an agent's interaction with tools.**
-
----
-
-**What the agent example does**
-- Implements an **MCP server** using `FastMCP` that exposes weather-related tools.
-- Connects an **MCP client agent** that uses an LLM to decide which MCP tools to invoke.
-- Handles retries and demonstrates robustness when tool calls fail.
-
-**What it demonstrates about the framework**
-- Shows how **FastMCP** standardizes tool interfaces via JSON-RPC with minimal boilerplate.
-- Provides clean separation between **tool hosting (server)** and **LLM reasoning (client)**.
-- Highlights protocol-first thinking and error-handling in agent execution.
-
---- 
-
-### Steps
-
-1. Still in the *agents* directory, we have partial implementations of an MCP server and an agent that uses a MCP client to connect to tools on the server. So that you can get acquainted with the main parts of each, we'll build them out as we did the agent in the first lab - by viewing differences and merging. Let's start with the server. Run the command below to see the differences.
-
-```
-code -d ../extra/lab2-server.txt mcp_server.py
-```
-</br></br>
-![MCP server code](./images/aa43.png?raw=true "MCP server code") 
-
-2. As you look at the differences, note that we are using FastMCP to more easily set up a server, with its @mcp.tool decorators to designate our functions as MCP tools. Also, we run this using the *streamable-http* transport protocol. Review each difference to see what is being done, then use the arrows to merge. When finished, click the "x"" in the tab at the top to close and save the files.
-
-3. Now that we've built out the server code, run it using the command below. You should see some startup messages similar to the ones in the screenshot.
-
-```
-python mcp_server.py
-```
-</br></br>
-![MCP server start](./images/aa44.png?raw=true "MCP server start") 
-
-4. Since this terminal is now tied up with the running server, we need to have a second terminal to use to work with the client. So that we can see the server responses, let's just open another terminal side-by-side with this one. To do that, right-click in the current terminal and select *Split Terminal* from the pop-up context menu.
-
-![Opening a second terminal](./images/aa45.png?raw=true "Opening a second terminal") 
-
-
-5. We also have a small tool that can call the MCP *discover* method to find the list of tools from our server. This is just for demo purposes. You can take a look at the code either by clicking on [**extra/discover_tools.py**](./extra/discover_tools.py) or by entering the first command below in the codespace's terminal. The actual code here is minimal. It connects to our server and invokes the list_tools method. Run it with the second command below and you should see the list of tools like in the screenshot.
-
-```
-code extra/discover_tools.py
-python extra/discover_tools.py
-```
-
-![Discovering tools](./images/aip15.png?raw=true "Discovering tools") 
-
-6. Now, let's turn our attention to the version of the agent that will use the MCP client to communicate with the server. In the second terminal, run a diff command so we can build out the new agent.
-
-```
-code -d ../extra/lab2-code.txt mcp_agent.py
-```
-
-7. Review and merge the changes as before. What we're highlighting in this step are the *System Prompt* that drives the LLM used by the agent, the connection with the MCP client at the /mcp/ endpoint (line 55), and the mpc calls to the tools on the server. When finished, close the tab to save the changes as before.
-
-![Agent using MCP client code](./images/aa75.png?raw=true "Agent using MCP client code") 
-   
-8. After you've made and saved the changes, you can run the client in the terminal with the command below.
-
-```
-python mcp_agent.py
-```
-
-9. The agent should start up, and, as in lab 1, prompt you for a location. You'll be able to see similar TAO output. And you'll also be able to see the server INFO messages in the other terminal as the MCP connections and events happen.
-
-![Agent using MCP client running](./images/aa76.png?raw=true "Agent using MCP client running") 
-
-10. When you're done, you can use 'exit' to stop the client and CTRL-C to stop the server. 
-
-<p align="center">
-**[END OF LAB]**
-</p>
-</br></br>
-
-**Lab 3 - Leveraging Coding Agents and Memory**
+**Lab 2 - Leveraging Coding Agents and Memory**
 
 **Purpose: In this lab, we’ll see how agents can drive solutions via creating code and implementing simple memory techniques - using the smolagents framework.**
 
@@ -242,7 +163,7 @@ convert 300
 </br></br>
 
     
-**Lab 4 - Using RAG with Agents**
+**Lab 3 - Using RAG with Agents**
 
 **Purpose: In this lab, we’ll explore how agents can leverage external data stores via RAG**
 
@@ -309,7 +230,7 @@ Tell me about the Southern office
 </p>
 </br></br>
 
-**Lab 5 - Working with multiple agents**
+**Lab 4 - Working with multiple agents**
 
 **Purpose: In this lab, we’ll see how to add an agent to a workflow using CrewAI.**
 
@@ -429,7 +350,7 @@ python agent5.py
 </p>
 </br></br>
 
-**Lab 6 - Building Agents with the Reflective Pattern**
+**Lab 5 - Building Agents with the Reflective Pattern**
 
 **Purpose: In this lab, we’ll see how to create an agent that uses the reflective pattern using the AutoGen framework.** 
 
@@ -520,7 +441,7 @@ python ../extra/reflect_agent_verbose.py
 </p>
 </br></br>
 
-**Lab 7 - Useful Implementation Approaches**
+**Lab 6 - Useful Implementation Approaches**
 
 **Purpose: In this lab, we’ll explore some useful implementation approaches in creating agents including using canonical queries and processing structured data.** 
 
