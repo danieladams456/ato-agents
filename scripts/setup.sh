@@ -62,10 +62,4 @@ nohup bash -c 'ollama serve &'
 
 echo "Manual setup complete!"
 echo "Python environment: $PYTHON_ENV"
-
-# Activate the environment in the current shell
-echo "Activating Python environment..."
-source ./$PYTHON_ENV/bin/activate
-
-echo "Environment activated! You're now in the '$PYTHON_ENV' virtual environment."
-echo "Python path: $(which python)"
+echo "To activate the environment, run: source ./$PYTHON_ENV/bin/activate"
