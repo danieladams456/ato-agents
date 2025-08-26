@@ -13,9 +13,17 @@ Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/b
 
 ![Creating new codespace from button](./images/ato-a1.png?raw=true "Creating new codespace from button")
 
-This will run for a long time (10 or more minutes) while it gets everything ready.
+This will run for a few minutes while it gets the virtual environment ready. You'll then need to run a setup script to finalize the installation.
 
-After the initial startup, it will run a script to setup the python environment, install needed python pieces, install Ollama, and then download the models we will use. This will take several more minutes to run. It will look like this while this is running.
+**3. Run setup script to finalize the installation.**
+
+In the codespace *TERMINAL* panel at the bottom, run the following command.
+
+```
+scripts/setup.sh
+```
+
+This will setup the python environment, install needed python pieces, install Ollama, and then download the model we will use. This will take several more minutes to run. It will look like this while this is running.
 
 ![Final prep](./images/aip2.png?raw=true "Final prep")
 
@@ -23,14 +31,17 @@ The codespace is ready to use when you see a prompt like the one shown below in 
 
 ![Ready to use](./images/aip3.png?raw=true "Ready to use")
 
+**4. Open a new terminal.**
 
-**3. Open up the *labs.md* file so you can follow along with the labs.**
+When the script is completed (after a long run), you can just click on the "+" sign on the far right to get a new terminal with the provided Python environment to work in.**
+
+**5. Open up the *labs.md* file so you can follow along with the labs.**
 You can either open it in a separate browser instance or open it in the codespace. 
 ![Opening labs](./images/aip4.png?raw=true "Opening labs")
 
 **Now, you are ready for the labs!**
 
-**4. (Optional, but recommended) Change your codespace's default timeout from 30 minutes to longer (60 for half-day sessions, 90 for deep dive sessions).**
+**6. (Optional, but recommended) Change your codespace's default timeout from 30 minutes to longer (60 for half-day sessions, 90 for deep dive sessions).**
 To do this, when logged in to GitHub, go to https://github.com/settings/codespaces and scroll down on that page until you see the *Default idle timeout* section. Adjust the value as desired.
 
 ![Changing codespace idle timeout value](./images/aa4.png?raw=true "Changing codespace idle timeout value")
