@@ -36,7 +36,7 @@ def warmup_langchain_ollama():
         print(f"{GREEN}✓ langchain_ollama warmup completed in {end_time - start_time:.2f}s{RESET}")
         return True
     except Exception as e:
-        print(f"{RED}✗ langchain_ollama warmup failed: {e}{RESET}")
+        print(f"{RED}langchain_ollama warmup failed: {e}{RESET}")
         return False
 
 def warmup_openai_client():
@@ -163,10 +163,10 @@ async def main():
     print(f"⏱  Total warmup time: {total_end - total_start:.2f}s")
     
     if success_count == total_tests:
-        print(f"{GREEN}{BOLD}🚀 Model is now warmed up and ready for fast agent responses!{RESET}")
+        print(f"{GREEN}{BOLD}Model is now warmed up and ready!{RESET}")
         sys.exit(0)
     else:
-        print(f"{YELLOW}⚠  Some interfaces failed to warmup, but agents should still work{RESET}")
+        print(f"{YELLOW}Some interfaces failed to warmup, but agents should still work{RESET}")
         sys.exit(1)
 
 if __name__ == "__main__":
