@@ -47,9 +47,8 @@ To do this, when logged in to GitHub, go to https://github.com/settings/codespac
 
 **NOTE: If your codespace times out and you need to reopen it**
 
-1. Go to https://github.com/your_github_userid/codespaces
-2. Find the codespace in the list, right-click, and select *Open in browser*
-3. Run the *ollama serve &* command to restart Ollama
+1. Click on the button to restart.
+2. Run the *ollama serve &* command to restart Ollama
 ```
 ollama serve &
 ```
