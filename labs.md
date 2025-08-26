@@ -1,7 +1,7 @@
 # Understanding and Working with AI Agents
 ## A Hands-on Gen AI Workshop
 ## Session labs 
-## Revision 1.0 - 08/22/25
+## Revision 1.1 - 08/26/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -441,83 +441,6 @@ python ../extra/reflect_agent_verbose.py
 </p>
 </br></br>
 
-**Lab 6 - Useful Implementation Approaches**
-
-**Purpose: In this lab, we’ll explore some useful implementation approaches in creating agents including using canonical queries and processing structured data.** 
-
----
-
-**What the agent example does**
-- Accepts natural language questions like “What’s the average revenue?”
-- Uses the **LLM as a planner** to decide which tool to call (`load_data` or `analyze_offices`)
-- LLM maps the user’s request to a **canonical query string** (e.g., `"average_revenue"`)
-- The canonical query is passed to a deterministic tool that performs **real data analysis** using `pandas`
-- If needed, the LLM first calls `load_data()` and then **replans** the next step with updated context
-- The agent returns grounded, reliable answers from a local `offices.csv` file
-
-**What it demonstrates about the framework**
-- Implements a **ReAct-style loop**: Thought → Action → Observation → Re-plan
-- Uses the LLM for **semantic translation**, not computation
-- Demonstrates the use of **canonical queries** to simplify and stabilize tool interfaces
-- Enables **structured tool invocation** for repeatability and testing
-
-
----
-
-### Steps
-
-1. For this lab, we have an application that reads in a data file in CSV format as our data source. The CSV file we're using employee counts, revenues, and year opened corresponding to the list of offices we used for the RAG PDF in lab 4. You can see the CSV content in the repo at  [**data/offices.csv**](./data/offices.csv) 
-
-![Data csv](./images/aip12.png?raw=true "Data csv") 
-
-2. As before, we'll build out the agent code with the diff/merge facility. Run the command below.
-```
-code -d ../extra/lab7-code.txt agent7.py
-```
-
-![Diffs](./images/aip5.png?raw=true "Diffs") 
-
-3. The changes you're merging in this time include:
-
-- Loading data from the csv file
-- Tool to analyze office data using canonical query strings
-- Section of system prompt that describes available tools and TAO process
-- Call to model
-- Action to choose tool
-
-<br></br>
-4. Also note that we're not using a formal framework this time. When you're done merging, close the tab as usual to save your changes. Now, in a terminal, run the agent with the command below. You'll see a prompt like "Office Data Agent is ready - type a question or 'exit' to quit.
-
-```
-python agent7.py
-```
-
-![agent running](./images/aip13.png?raw=true "agent running") 
-
-5. At the agent's prompt, you can enter a query like the one below. 
-
-```
-What's the average revenue across all offices?
-```
-
-6. After you hit *Enter*, you should see the agent pause for a while and then start showing its thoughts and actions. It should explain which tools it chose and why. You can look back in the code and see if you can follow the flow in the code.
-
-![agent workflow](./images/aip14.png?raw=true "agent workflow")    
-
-7. You can now ask other questions of the agent if you want related to the data. Here's some suggestions:
-
-```
-"Which office has the most employees?"
-“List offices opened after 2013.”
-“Which city generates the highest revenue per employee?”
-```
-
-8. Compare the questions and responses with the code used to answer them and see if you can trace the flow in the code from the query to the response.
-
-<p align="center">
-**[END OF LAB]**
-</p>
-</br></br>
 
 <p align="center">
 **THANKS!**
