@@ -86,7 +86,7 @@ async def warmup_async_ollama():
 def warmup_litellm_model():
     """Warmup using LiteLLMModel with CodeAgent (for smolagents curr_conv_agent.py)"""
     try:
-        from smolagents import LiteLLMModel, CodeAgent
+        from smolagents import LiteLLMModel, CodeAgent, tool
         print(f"{CYAN}Warming up LiteLLMModel interface...{RESET}")
         
         model = LiteLLMModel(
@@ -96,13 +96,24 @@ def warmup_litellm_model():
             temperature=0.0,
         )
         
-        # Create a CodeAgent without tools for warmup (matches curr_conv_agent.py)
-        agent = CodeAgent(tools=[], model=model, max_steps=1)
+        # Create a simple dummy tool for warmup
+        @tool
+        def dummy_tool(input_text: str) -> str:
+            """A simple dummy tool for warmup."""
+            return f"Processed: {input_text}"
+        
+        # Create a CodeAgent with similar configuration to curr_conv_agent.py
+        agent = CodeAgent(
+            tools=[dummy_tool], 
+            model=model, 
+            add_base_tools=False,
+            max_steps=1
+        )
         
         start_time = time.time()
         
-        # Make a simple test call through the agent
-        response = agent.run("Hello")
+        # Make a simple test call that would use the model
+        response = agent.run("Hello, just say hi back")
         
         end_time = time.time()
         print(f"{GREEN}✓ LiteLLMModel warmup completed in {end_time - start_time:.2f}s{RESET}")
