@@ -18,6 +18,13 @@ openai==1.75.0        # satisfies CrewAI & LlamaIndex (>=1.1,<1.76)
 requests>=2.28        # for the weather‐lookup tool
 sentence-transformers==4.1.0
 
+# -- Others ----
+ollama
+pandas
+litellm
+pydantic
+pdfplumber
+
 
 
 
