@@ -10,7 +10,7 @@
        "ghcr.io/devcontainers/features/docker-from-docker:1": {},
        "ghcr.io/devcontainers/features/github-cli:1": {},
        "ghcr.io/devcontainers/features/python:1": {},
-       "node": {
+       "ghcr.io/devcontainers/features/node:1": {
                "version": "lts",
                "nodeGypDependencies": true
         }
@@ -37,5 +37,6 @@
         }
     },
     "postCreateCommand": "bash -i scripts/pysetup.sh py_env && bash -i scripts/startOllama.sh",
-    "postStartCommand" : "nohup bash -c 'ollama serve &'"
+    "postStartCommand" : "nohup bash -c 'ollama serve &'",
+    "waitFor": "postCreateCommand"
 }
