@@ -99,7 +99,15 @@ def warmup_litellm_model():
         # Create a simple dummy tool for warmup
         @tool
         def dummy_tool(input_text: str) -> str:
-            """A simple dummy tool for warmup."""
+            """
+            A simple dummy tool for warmup.
+            
+            Args:
+                input_text: The text to process
+                
+            Returns:
+                str: Processed text
+            """
             return f"Processed: {input_text}"
         
         # Create a CodeAgent with similar configuration to curr_conv_agent.py
