@@ -71,7 +71,7 @@ python agent1.py
 </p>
 </br></br>
 
-**Lab 2 - Leveraging Coding Agents and Memory**
+**Lab 2 - Leveraging Coding Agents and Persistence**
 
 **Purpose: In this lab, we’ll see how agents can drive solutions via creating code and implementing simple memory techniques - using the smolagents framework.**
 
