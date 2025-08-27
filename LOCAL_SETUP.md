@@ -22,14 +22,8 @@ This guide helps you set up a local development environment for the ATO Agents p
    - Install from [nodejs.org](https://nodejs.org/)
    - Or use a version manager like `nvm`
 
-3. **Docker** (optional, for containerized services)
-   - Install from [docker.com](https://www.docker.com/get-started)
-
-4. **Git**
-   ```bash
-   git --version
-   ```
-
+3. **Ollama**
+   
 ## Setup Steps
 
 ### 1. Clone the Repository
