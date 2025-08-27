@@ -181,8 +181,6 @@ convert 300
 - Repeats until user enters *exit*
 
 **What it demonstrates about the framework**
-- Integrates **LlamaIndex + ChromaDB** for Retrieval-Augmented Generation.
-- Uses **LangChain agents** to orchestrate tool use and LLM querying.
 - Shows a real-world use of RAG: mapping user input to structured, embedded knowledge.
 
 ---
