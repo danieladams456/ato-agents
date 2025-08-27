@@ -138,7 +138,7 @@ Convert 400 to JPY
 ![Running with partial inputs](./images/aa71.png?raw=true "Running agent")   
 
 
-8. To see history in the tool, enter "*history*".  To see the stored history information on disk, type "exit" to exit the tool. Then in the terminal type the command below to see the contents of the file.
+8. To see the stored history information on disk, type "exit" to exit the tool. Then in the terminal type the command below to see the contents of the file.
 
 ```
 cat currency_memory.json
